@@ -1,0 +1,12 @@
+[
+  {
+    "pergunta": "Quem foi o primeiro imperador do Brasil?",
+    "opcoes": ["Dom João VI", "Dom Pedro I", "Tiradentes", "Dom Pedro II"],
+    "resposta": "Dom Pedro I"
+  },
+  {
+    "pergunta": "Em que ano o Brasil se tornou independente de Portugal?",
+    "opcoes": ["1500", "1822", "1889", "1808"],
+    "resposta": "1822"
+  }
+]
