@@ -111,3 +111,11 @@ main {
 .content button:hover {
   background-color: #00792d;
 }
+
+footer {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}

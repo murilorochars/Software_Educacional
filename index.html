@@ -1,370 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz História do Brasil</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            background-color: #f0f8ff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            width: 100%;
-        }
-
-        header {
-            width: 100%;
-            text-align: center;
-            background-color: #cdcece;
-            padding: 15px;
-        }
-
-        i {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            width: 40px;
-        }
-
-        header h1 span:nth-child(1) {
-            color: #009739;
-        }
-
-        header h1 span:nth-child(2) {
-            color: #fedd00;
-        }
-
-        header h1 span:nth-child(4) {
-            color: #012169;
-        }
-
-        .quiz-content {
-            display: flex;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .question-section {
-            flex: 2;
-        }
-
-        #explanation {
-            flex: 1;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background-color: #e8f5e9;
-            border-radius: 15px;
-            min-height: 300px;
-        }
-
-        .character-img {
-            width: 150px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .explanation-text {
-            font-size: 1.2rem;
-            color: #333;
-            text-align: center;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        #quiz-container {
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        #question {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        #options {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .option-btn {
-            display: block;
-            margin: 0.5rem auto;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background-color: #fff;
-            border: 2px solid #009688;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 80%;
-            max-width: 500px;
-            transition: all 0.3s;
-        }
-
-        .option-btn:hover {
-            background-color: #e0f2f1;
-        }
-
-        .option-btn.correct {
-            background-color: #a5d6a7;
-            transform: scale(1.02);
-        }
-
-        .option-btn.wrong {
-            background-color: #ef9a9a;
-        }
-
-        #next-btn {
-            margin-top: 1.5rem;
-            padding: 0.8rem 2rem;
-            font-size: 1.2rem;
-            background-color: #009688;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #next-btn:hover {
-            background-color: #00796b;
-        }
-
-        #next-btn:disabled {
-            background-color: #b2dfdb;
-            cursor: not-allowed;
-        }
-
-        footer {
-            width: 100%;
-            text-align: center;
-            background-color: #cdcece;
-            padding: 15px;
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .quiz-content {
-                flex-direction: column;
-            }
-
-            #explanation {
-                width: 100%;
-                margin-top: 20px;
-            }
-        }
-
-        /* Animação para o bonequinho */
-        @keyframes appear {
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .character-animation {
-            animation: appear 0.5s ease-out;
-        }
-    </style>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <i>?</i>
-            <h1><span>Quiz</span> <span>História</span> do <span>Brasil</span></h1>
-        </header>
+    <header data-aos="fade-down" data-aos-duration="1000">
+        <h1>Quiz História do Brasil</h1>
+        <ul>
+            <li data-aos="fade-right" data-aos-delay="300">Sobre</li>
+            <a href="./home.html">
+                <li data-aos="fade-left" data-aos-delay="600">Jogar</li>
+            </a>
+        </ul>
+    </header>
 
-        <main id="quiz-container">
-            <div class="quiz-content">
-                <div class="question-section">
-                    <div id="question"></div>
-                    <div id="options"></div>
-                    <button id="next-btn" disabled>Próxima</button>
-                </div>
-                <div id="explanation" class="explanation-container">
-                    <img id="character-img" class="character-img character-animation" src="" alt="Feedback">
-                    <div id="explanation-text" class="explanation-text"></div>
-                </div>
-            </div>
-        </main>
+    <div class="hero" data-aos="zoom-in" data-aos-duration="1500">
+        <h1>Quiz História do Brasil</h1>
+    </div>
+
+    <main>
+        <div class="content">
+            <h1 data-aos="fade-up">Sobre o Jogo</h1>
+            <p data-aos="fade-up" data-aos-delay="300">Este jogo foi criado para ajudar crianças a aprenderem mais sobre
+                a história do nosso país de forma divertida e acessível.</p>
+            <h1 data-aos="fade-up" data-aos-delay="600">Como jogar?</h1>
+            <p data-aos="fade-up" data-aos-delay="900">Responda às perguntas, acumule pontos e descubra curiosidades
+                incríveis sobre o Brasil!</p>
+            <button data-aos="zoom-in" data-aos-delay="1200"><a href="./home.html">Começar o quiz</a></button>
+        </div>
 
         <footer>
             <p>&copy; 2025 Quiz Brasil para Crianças | Murilo | Yuri | Marco </p>
         </footer>
-    </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        let perguntas = [];
-        let perguntaAtual = 0;
-        let pontos = 0;
-
-        const questionEl = document.getElementById("question");
-        const optionsEl = document.getElementById("options");
-        const nextBtn = document.getElementById("next-btn");
-        const explanationEl = document.getElementById("explanation");
-        const explanationTextEl = document.getElementById("explanation-text");
-        const characterImg = document.getElementById("character-img");
-
-        // URLs das imagens dos bonequinhos
-        const IMG_CORRETO = "https://4.bp.blogspot.com/_eIBAVA7AGQ0/S2japOjNyfI/AAAAAAAAJ_E/vOGPGb1w2fk/w1200-h630-p-k-no-nu/C%C3%B3pia+de+07.bmp.jpg";
-        const IMG_ERRADO = "https://2.bp.blogspot.com/-SrrbR-Ex07c/VuBMUuXGO9I/AAAAAAAA4Ac/gGBNqNfMwtw/s1600/regrinhas-de-convivencia-certo-errado-2.JPG";
-
-        // Perguntas com explicações
-        const perguntasComExplicacoes = [
-            {
-                "pergunta": "Quem foi o primeiro imperador do Brasil?",
-                "opcoes": ["Dom João VI", "Dom Pedro I", "Tiradentes", "Dom Pedro II"],
-                "resposta": "Dom Pedro I",
-                "explicacao": "Dom Pedro I foi o primeiro imperador do Brasil! Ele proclamou a independência do Brasil em 7 de setembro de 1822, com o famoso 'Grito do Ipiranga'. Ele governou o Brasil até 1831, quando abdicou do trono em favor de seu filho, Dom Pedro II."
-            },
-            {
-                "pergunta": "Em que ano o Brasil se tornou independente de Portugal?",
-                "opcoes": ["1500", "1822", "1889", "1808"],
-                "resposta": "1822",
-                "explicacao": "O Brasil se tornou independente de Portugal em 1822! Foi no dia 7 de setembro que Dom Pedro I declarou a independência às margens do rio Ipiranga. Antes disso, o Brasil era uma colônia de Portugal desde o ano 1500, quando Pedro Álvares Cabral chegou aqui."
-            }
-        ];
-
-        function mostrarPergunta() {
-            nextBtn.disabled = true;
-            optionsEl.innerHTML = "";
-            explanationEl.style.display = "none";
-
-            const q = perguntasComExplicacoes[perguntaAtual];
-            questionEl.textContent = q.pergunta;
-
-            q.opcoes.forEach((opcao) => {
-                const btn = document.createElement("button");
-                btn.textContent = opcao;
-                btn.classList.add("option-btn");
-                btn.onclick = () => verificarResposta(btn, q.resposta, q.explicacao);
-                optionsEl.appendChild(btn);
-            });
-        }
-
-        function verificarResposta(btn, respostaCorreta, explicacao) {
-            const botoes = document.querySelectorAll(".option-btn");
-            botoes.forEach((b) => (b.disabled = true));
-
-            if (btn.textContent === respostaCorreta) {
-                // Resposta correta
-                btn.classList.add("correct");
-                pontos++;
-
-                // Mostrar bonequinho "certo" e explicação
-                characterImg.src = IMG_CORRETO;
-                explanationTextEl.textContent = explicacao;
-                explanationEl.style.display = "flex";
-
-                // Adicionar animação
-                characterImg.classList.add("character-animation");
-
-                // Reproduzir som (simulado)
-                playSound("correct");
-            } else {
-                // Resposta errada
-                btn.classList.add("wrong");
-
-                // Mostrar bonequinho "errado" primeiro
-                characterImg.src = IMG_ERRADO;
-                explanationTextEl.textContent = "Ops! Não foi essa a resposta correta. Veja abaixo:";
-                explanationEl.style.display = "flex";
-
-                // Reproduzir som (simulado)
-                playSound("wrong");
-
-                // Depois de 2 segundos, mostrar a resposta correta
-                setTimeout(() => {
-                    // Encontrar e destacar a resposta correta
-                    botoes.forEach(b => {
-                        if (b.textContent === respostaCorreta) {
-                            b.classList.add("correct");
-                        }
-                    });
-
-                    // Mostrar bonequinho "certo" e explicação
-                    characterImg.src = IMG_CORRETO;
-                    explanationTextEl.textContent = explicacao;
-                    characterImg.classList.add("character-animation");
-                }, 2000);
-            }
-
-            nextBtn.disabled = false;
-        }
-
-        // Função simulada para tocar som (substitua por seus arquivos de áudio reais)
-        function playSound(type) {
-            try {
-                const audio = new Audio(type === "correct" ? "assets/sounds/correct.mp3" : "assets/sounds/wrong.mp3");
-                audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
-            } catch (e) {
-                console.log("Simulando som:", type);
-            }
-        }
-
-        nextBtn.addEventListener("click", () => {
-            perguntaAtual++;
-            if (perguntaAtual < perguntasComExplicacoes.length) {
-                mostrarPergunta();
-            } else {
-                mostrarResultado();
-            }
-        });
-
-        function mostrarResultado() {
-            questionEl.textContent = `Você acertou ${pontos} de ${perguntasComExplicacoes.length}!`;
-            optionsEl.innerHTML = "";
-            nextBtn.style.display = "none";
-            explanationEl.style.display = "none";
-
-            // Mostrar mensagem final
-            const finalMessage = document.createElement("div");
-            finalMessage.innerHTML = `
-                <h2>${pontos === perguntasComExplicacoes.length ? "Parabéns! Você acertou tudo!" :
-                    pontos >= perguntasComExplicacoes.length / 2 ? "Bom trabalho! Você acertou mais da metade!" :
-                        "Continue estudando! Você pode melhorar!"}</h2>
-                <p>Obrigado por jogar nosso quiz de História do Brasil!</p>
-            `;
-            optionsEl.appendChild(finalMessage);
-        }
-
-        // Iniciar o quiz
-        mostrarPergunta();
+        AOS.init();
     </script>
 </body>
 
